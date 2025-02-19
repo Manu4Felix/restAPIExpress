@@ -1,0 +1,29 @@
+{
+    "recurso":[
+        {
+            "id_recurso": 1,
+            "nombreRe": "Recurso 1",
+            "descripcion": "Sala de reuniones",
+            "ubicacion": "Calle 1",
+            "tipoRecurso": "sala",
+            "estadoRecurso": "disponible"
+        },
+        {
+            "id_recurso": 2,
+            "nombreRe": "Recurso 2",
+            "descripcion": "Material de oficina",
+            "ubicacion": "Calle 2",
+            "tipoRecurso": "equipamiento",
+            "estadoRecurso": "disponible"
+        },
+        {
+            "id_recurso": 3,
+            "nombreRe": "Recurso 3",
+            "descripcion": "Coche de empresa",
+            "ubicacion": "Calle 3",
+            "tipoRecurso": "vehiculo",
+            "estadoRecurso": "disponible"
+        }
+    ]
+}
+

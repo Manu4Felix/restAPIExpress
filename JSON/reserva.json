@@ -1,0 +1,26 @@
+{
+    "reserva":[
+        {
+            "id_reserva": 1,
+            "estado": "confirmada",
+            "fecha": "16-03-2025",
+            "horaInicio": "10:00",
+            "horaFin": "12:00"
+
+        },
+        {
+            "id_reserva": 2,
+            "estado": "pendiente",
+            "fecha": "19-05-2025",
+            "horaInicio": "16:00",
+            "horaFin": "17:00"
+        },
+        {
+            "id_reserva": 3,
+            "estado": "confirmada",
+            "fecha": "07-04-2025",
+            "horaInicio": "09:00",
+            "horaFin": "11:00"
+        }
+    ]
+}
