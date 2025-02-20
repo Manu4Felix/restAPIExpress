@@ -1,0 +1,32 @@
+GET http://localhost:3000/reservas
+
+###
+
+GET http://localhost:3000/reservas/1
+
+###
+
+POST http://localhost:3000/reservas HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_reserva": 2,
+    "estado": "pendiente",
+    "fecha": "19-05-2025",
+    "horaInicio": "16:00",
+    "horaFin": "17:00"
+}
+
+###
+PUT http://localhost:3000/reservas/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_reserva": 2,
+    "estado": "confirmada",
+    "fecha": "15-05-2025",
+    "horaInicio": "10:00",
+    "horaFin": "12:00"
+}
+###
+DELETE http://localhost:3000/reservas/2 HTTP/1.1

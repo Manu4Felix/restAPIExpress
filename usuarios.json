@@ -1,11 +1,5 @@
 {
-    "usuario":[
-        {
-            "id_usuario": 1,
-            "nombre": "Juan",
-            "correo": "juan@gmail.com",
-            "rol": "cliente"
-        },
+    "usuarios": [
         {
             "id_usuario": 2,
             "nombre": "Pepe",
@@ -17,6 +11,12 @@
             "nombre": "Manuel",
             "correo": "manuel@gmail.com",
             "rol": "administrador"
+        },
+        {
+            "id_usuario": 1,
+            "nombre": "Juan",
+            "correo": "juan@gmail.com",
+            "rol": "cliente"
         }
     ]
 }
