@@ -43,5 +43,5 @@ Esta API permite gestionar un sistema de reservas, incluyendo usuarios, recursos
 ## Reglas de Negocio
 - **Gestión de usuarios**: Cada usuario tiene un identificador único, correo electrónico único y rol (cliente o administrador). Solo los administradores pueden gestionar recursos.
 - **Gestión de recursos**: Cada recurso tiene un tipo (sala, vehículo, equipamiento) y un estado (disponible, reservado, fuera de servicio).
-- **Gestión de reservas**: Una reserva tiene un estado (activa, cancelada, completada) y asegura que un recurso solo puede estar reservado en un momento concreto.
+- **Gestión de reservas**: Una reserva tiene un estado (pediente, cancelada, confirmada) y asegura que un recurso solo puede estar reservado en un momento concreto.
 - **Notificaciones**: Registran mensajes asociados a reservas y usuarios para notificaciones internas.
