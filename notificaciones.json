@@ -1,5 +1,5 @@
 {
-    "notificacion":[
+    "notificaciones":[
         {
            "id_notificacion": 1,
             "tipo": "reserva",

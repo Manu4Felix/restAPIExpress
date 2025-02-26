@@ -33,14 +33,11 @@ app.get("/usuarios", (req, res) => {
 
 app.get("/usuarios/:id",(req,res)=>{
     const data=readData();
-    //Extraiem l'id de l'url recordem que req es un objecte tipus requets
-    // que conté l'atribut params i el podem consultar
     const id=parseInt(req.params.id);
     const usuario=data.usuarios.find((usuario)=>usuario.id_usuario===id);
     res.json(usuario);
 });
 
-//Creem un endpoint del tipus post per afegir un llibre
 
 app.post("/usuarios",(req,res)=>{
     const data=readData();
@@ -68,7 +65,6 @@ app.put("/usuarios/:id", (req, res) => {
     res.json({ message: "User updated successfully" });
 });
 
-//Creem un endpoint per eliminar un usuario
 app.delete("/usuarios/:id", (req, res) => {
     const data = readData();
     const id = parseInt(req.params.id);
