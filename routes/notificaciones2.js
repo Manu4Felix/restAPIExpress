@@ -1,9 +1,7 @@
 import express from "express";
 import fs from "fs";
-import bodyParser from "body-parser";
 
-const app = express();
-app.use(bodyParser.json());
+const router = express.Router();
 
 const readData = () => {
     try {
@@ -22,11 +20,8 @@ const writeData = (data) => {
     }
 };
 
-app.use(express.static("public"));//carpeta publica pel css
-app.set('view engine','ejs');//Fem servir el motor ejs
-app.set('views', './views'); //carpeta on desem els arxius .ejs
-
-app.get('/notificaciones', (req, res) => {
+router.get('/', (req, res) => {
+    console.log("ENTRA")
     const user={name:"Manuel"}
     const htmlMessage = `
     <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
@@ -35,18 +30,14 @@ app.get('/notificaciones', (req, res) => {
     res.render("notificaciones",{user, data,htmlMessage})
 });
 
-app.get("/", (req, res) => {
-    res.render("home");
-});
-
-app.get("/notificaciones/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     const data = readData();
     const id = parseInt(req.params.id);
     const notificacion = data.notificaciones.find((notificacion) => notificacion.id_notificacion === id);
     res.json(notificacion);
 });
 
-app.post("/notificaciones", (req, res) => {
+router.post("/", (req, res) => {
     const data = readData();
     const body = req.body;
     const newNotificacion = {
@@ -57,7 +48,7 @@ app.post("/notificaciones", (req, res) => {
     res.json(newNotificacion);
 });
 
-app.put("/notificaciones/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     const data = readData();
     const body = req.body;
     const id = parseInt(req.params.id);
@@ -70,7 +61,7 @@ app.put("/notificaciones/:id", (req, res) => {
     res.json({ message: "Notificación actualizada con éxito" });
 });
 
-app.delete("/notificaciones/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     const data = readData();
     const body = req.body;
     const id = parseInt(req.params.id);
@@ -85,6 +76,4 @@ app.delete("/notificaciones/:id", (req, res) => {
     res.json({ message: "Notificación eliminada con éxito" });
 });
 
-app.listen(3000, () => {
-    console.log("Server listening on port 3000");
-});
+export default router;

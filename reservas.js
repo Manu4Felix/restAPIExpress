@@ -22,24 +22,30 @@ const writeData = (data) => {
     }
 };
 
-app.get("/", (req, res) => {
-    res.send("¡Bienvenido a reservas!");
-});
+app.use(express.static("public"));//carpeta publica pel css
+app.set('view engine','ejs');//Fem servir el motor ejs
+app.set('views', './views'); //carpeta on desem els arxius .ejs
 
-app.get("/reservas", (req, res) => {
+app.get('/reservas', (req, res) => {
+    const user={name:"Manuel"}
+    const htmlMessage = `
+    <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
+    <a href="https://www.example.com">Visita Example</a>`;
     const data = readData();
-    res.json(data.reservas);
+    res.render("reservas",{user, data,htmlMessage})
 });
 
-app.get("/reservas/:id",(req,res)=>{
-    const data=readData();
-    //Extraiem l'id de l'url recordem que req es un objecte tipus requets
-    // que conté l'atribut params i el podem consultar
-    const id=parseInt(req.params.id);
-    const reserva=data.reservas.find((reserva)=>reserva.id_reserva===id);
+app.get("/", (req, res) => {
+    res.render("home");
+});
+
+
+app.get("/reservas/:id", (req, res) => {
+    const data = readData();
+    const id = parseInt(req.params.id);
+    const reserva = data.reservas.find((reserva) => reserva.id_reserva === id);
     res.json(reserva);
 });
-
 
 app.post("/reservas",(req,res)=>{
     const data=readData();
@@ -69,8 +75,13 @@ app.put("/reservas/:id", (req, res) => {
 //Creem un endpoint per eliminar un usuario
 app.delete("/reservas/:id", (req, res) => {
     const data = readData();
+    const body = req.body;
     const id = parseInt(req.params.id);
     const reservaIndex = data.reservas.findIndex((reserva) => reserva.id_reserva === id);
+    data.reservas[reservaIndex] = {
+        ...data.reservas[notificacionIndex],
+        ...body,
+    }
 
     data.reservas.splice(reservaIndex, 1);
     writeData(data);
