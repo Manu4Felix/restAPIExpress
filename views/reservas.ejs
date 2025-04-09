@@ -13,12 +13,12 @@
     </header>
     <main>
         <section>
-            <h2>Lista de Notificaciones</h2>
-            <ul class="reserva-list">
+            <h2>Lista de Reservas</h2>
+            <ul class="notificacion-list">
                 <% data.reservas.forEach(reserva => { %>
                     <li class="notificacion-item">
                         <strong><%= reserva.name %></strong>
-                        <span>Estado: <%= reserva.tipo %></span>
+                        <span>Estado: <%= reserva.estado %></span>
                         <span>Fecha: <%= reserva.fecha %></span>
                         <span>Hora de Inicio: <%= reserva.horaInicio %></span>
                         <span>Hora de Fin: <%= reserva.horaFin %></span>
