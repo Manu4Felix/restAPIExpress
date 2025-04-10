@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>Gestión de Notificaciones para <%= user.name %>!</h1>
@@ -15,18 +17,21 @@
         <section>
             <h2>Lista de Notificaciones</h2>
             <ul class="notificacion-list">
-                <% data.notificaciones.forEach(notificacion => { %>
+                <% data.notificaciones.forEach(notificacion=> { %>
                     <li class="notificacion-item">
-                        <strong><%= notificacion.name %></strong>
+                        <strong>
+                            <%= notificacion.name %>
+                        </strong>
                         <span>Tipo: <%= notificacion.tipo %></span>
                         <span>Fecha: <%= notificacion.fecha %></span>
                         <span>Hora: <%= notificacion.hora %></span>
                         <span>Estado: <%= notificacion.estado %></span>
 
                     </li>
-                <% }) %>
+                    <% }) %>
             </ul>
         </section>
     </main>
 </body>
+
 </html>
