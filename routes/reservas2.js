@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     const user={name:"Manuel"}
     const htmlMessage = `
     <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
-    <a href="https://www.example.com">Visita Example</a>`;
+    <a href="http://localhost:3000/">Home</a>`;
     const data = readData();
     res.render("reservas",{user, data,htmlMessage})
 });
@@ -67,7 +67,7 @@ router.delete("/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const reservaIndex = data.reservas.findIndex((reserva) => reserva.id_reserva === id);
     data.reservas[reservaIndex] = {
-        ...data.reservas[notificacionIndex],
+        ...data.reservas[reservaIndex],
         ...body,
     }
 

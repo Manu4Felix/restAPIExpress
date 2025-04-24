@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
     <header>
-        <h1>Gestión de Reservas para <%= user.name %>!</h1>
+        <h1>Gestión de Usuarios para <%= user.name %>!</h1>
         <h2><%- htmlMessage %></h2>
     </header>
     <main>
         <section>
-            <h2>Lista de Reservas</h2>
+            <h2>Lista de Usuarios</h2>
             <ul class="notificacion-list">
-                <% data.reservas.forEach(reserva => { %>
+                <% data.usuarios.forEach(usuario => { %>
                     <li class="notificacion-item">
-                        <strong><%= reserva.estado %></strong>
-                        <span>Fecha: <%= reserva.fecha %></span>
-                        <span>Hora de Inicio: <%= reserva.horaInicio %></span>
-                        <span>Hora de Fin: <%= reserva.horaFin %></span>
+                        <strong><%= usuario.nombre %></strong>
+                        <span>Correo Electrónico: <%= usuario.correo %></span>
+                        <span>Rol: <%= usuario.rol %></span>
                     </li>
                 <% }) %>
             </ul>

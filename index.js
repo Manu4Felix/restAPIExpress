@@ -2,6 +2,9 @@ import express from "express";
 //import reservasRoutes from "./routes/reservas2";
 import notificacionesRoutes from "./routes/notificaciones2.js";
 import reservasRoutes from "./routes/reservas2.js";
+import usuariosRoutes from "./routes/usuarios2.js";
+import recursosRoutes from "./routes/recursos2.js";
+
 
 //import methodOverride from "method-override"
 
@@ -23,6 +26,8 @@ app.get("/",(req,res)=>{
 //app.use("/reservas", reservasRoutes);
 app.use("/notificaciones", notificacionesRoutes);
 app.use("/reservas", reservasRoutes);
+app.use("/usuarios", usuariosRoutes);
+app.use("/recursos", recursosRoutes);
 
 
 //Funció per escoltar

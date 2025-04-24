@@ -13,14 +13,15 @@
     </header>
     <main>
         <section>
-            <h2>Lista de Reservas</h2>
+            <h2>Lista de Recursos</h2>
             <ul class="notificacion-list">
-                <% data.reservas.forEach(reserva => { %>
+                <% data.recursos.forEach(recurso => { %>
                     <li class="notificacion-item">
-                        <strong><%= reserva.estado %></strong>
-                        <span>Fecha: <%= reserva.fecha %></span>
-                        <span>Hora de Inicio: <%= reserva.horaInicio %></span>
-                        <span>Hora de Fin: <%= reserva.horaFin %></span>
+                        <strong><%= recurso.nombreRe %></strong>
+                        <span>Descripción: <%= recurso.descripcion %></span>
+                        <span>Ubicación: <%= recurso.ubicacion %></span>
+                        <span>Tipo: <%= recurso.tipoRecurso %></span>
+                        <span>Estado: <%= recurso.estadoRecurso %></span>
                     </li>
                 <% }) %>
             </ul>

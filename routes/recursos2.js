@@ -5,7 +5,7 @@ const router = express.Router();
 
 const readData = () => {
     try {
-        const data = fs.readFileSync("./notificaciones.json");
+        const data = fs.readFileSync("./recursos.json");
         return JSON.parse(data);
     } catch (error) {
         console.error(error);
@@ -14,7 +14,7 @@ const readData = () => {
 
 const writeData = (data) => {
     try {
-        fs.writeFileSync("./notificaciones.json", JSON.stringify(data));
+        fs.writeFileSync("./recursos.json", JSON.stringify(data));
     } catch (error) {
         console.error(error);
     }
@@ -27,53 +27,53 @@ router.get('/', (req, res) => {
     <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
     <a href="http://localhost:3000/">Home</a>`;
     const data = readData();
-    res.render("notificaciones",{user, data,htmlMessage})
+    res.render("recursos",{user, data,htmlMessage})
 });
 
 router.get("/:id", (req, res) => {
     const data = readData();
     const id = parseInt(req.params.id);
-    const notificacion = data.notificaciones.find((notificacion) => notificacion.id_notificacion === id);
-    res.json(notificacion);
+    const recurso = data.recursos.find((recurso) => recurso.id_recurso === id);
+    res.json(recurso);
 });
 
 router.post("/", (req, res) => {
-    const data = readData();
-    const body = req.body;
-    const newNotificacion = {
-        ...body
+    const data=readData();
+    const body=req.body;
+    const nuevoRecurso = {
+    ...body,
     };
-    data.notificaciones.push(newNotificacion);
+    data.recursos.push(nuevoRecurso);
     writeData(data);
-    res.json(newNotificacion);
+    res.json(nuevoRecurso);
 });
 
 router.put("/:id", (req, res) => {
     const data = readData();
     const body = req.body;
     const id = parseInt(req.params.id);
-    const notificacionIndex = data.notificaciones.findIndex((n) => n.id_notificacion === id);
-    data.notificaciones[notificacionIndex] = {
-        ...data.notificaciones[notificacionIndex],
-        ...body,
+    const recursoIndex = data.recursos.findIndex((recurso) => recurso.id_recurso === id);
+    data.recursos[recursoIndex] = {
+    ...data.recursos[recursoIndex],
+    ...body,
     };
     writeData(data);
-    res.json({ message: "Notificación actualizada con éxito" });
+    res.json({ message: "Recurso actualizado con éxito." });
 });
 
 router.delete("/:id", (req, res) => {
     const data = readData();
     const body = req.body;
     const id = parseInt(req.params.id);
-    const notificacionIndex = data.notificaciones.findIndex((notificacion) => notificacion.id_notificacion === id);
-    data.notificaciones[notificacionIndex] = {
-        ...data.notificaciones[notificacionIndex],
+    const recursoIndex = data.recursos.findIndex((recurso) => recurso.id_recurso === id);
+    data.recursos[recursoIndex] = {
+        ...data.recursos[recursoIndex],
         ...body,
     }
 
-    data.notificaciones.splice(notificacionIndex, 1);
+    data.recursos.splice(recursoIndex, 1);
     writeData(data);
-    res.json({ message: "Notificación eliminada con éxito" });
+    res.json({ message: "Recurso eliminado con éxito." });
 });
 
 export default router;

@@ -1,9 +1,7 @@
 import express from "express";
 import fs from "fs";
-import bodyParser from "body-parser";
 
-const app = express();
-app.use(bodyParser.json());
+const router = express.Router();
 
 const readData = () => {
     try {
@@ -22,32 +20,27 @@ const writeData = (data) => {
     }
 };
 
-app.use(express.static("public"));//carpeta publica pel css
-app.set('view engine','ejs');//Fem servir el motor ejs
-app.set('views', './views'); //carpeta on desem els arxius .ejs
-
-app.get("/", (req, res) => {
-    res.render("¡Bienvenido a clientes!");
-});
-
-app.get("/usuarios", (req, res) => {
+router.get('/', (req, res) => {
+    console.log("ENTRA")
+    const user={name:"Manuel"}
+    const htmlMessage = `
+    <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
+    <a href="http://localhost:3000/">Home</a>`;
     const data = readData();
-    res.json(data.usuarios);
+    res.render("usuarios",{user, data,htmlMessage})
 });
 
-app.get("/usuarios/:id",(req,res)=>{
-    const data=readData();
-    const id=parseInt(req.params.id);
-    const usuario=data.usuarios.find((usuario)=>usuario.id_usuario===id);
+router.get("/:id", (req, res) => {
+    const data = readData();
+    const id = parseInt(req.params.id);
+    const usuario = data.usuarios.find((usuario) => usuario.id_usuario === id);
     res.json(usuario);
 });
 
-
-app.post("/usuarios",(req,res)=>{
+router.post("/", (req, res) => {
     const data=readData();
     const body=req.body;
-    //todo lo que viene en ...body se agrega al nuevo libro
-    const nuevoUsuario ={
+    const nuevoUsuario = {
     ...body,
     };
     data.usuarios.push(nuevoUsuario);
@@ -55,8 +48,7 @@ app.post("/usuarios",(req,res)=>{
     res.json(nuevoUsuario);
 });
 
-// UPDATE
-app.put("/usuarios/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     const data = readData();
     const body = req.body;
     const id = parseInt(req.params.id);
@@ -66,21 +58,22 @@ app.put("/usuarios/:id", (req, res) => {
     ...body,
     };
     writeData(data);
-    res.json({ message: "User updated successfully" });
+    res.json({ message: "Usuario actualizado con éxito." });
 });
 
-app.delete("/usuarios/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     const data = readData();
+    const body = req.body;
     const id = parseInt(req.params.id);
     const usuarioIndex = data.usuarios.findIndex((usuario) => usuario.id_usuario === id);
+    data.usuarios[usuarioIndex] = {
+        ...data.usuarios[usuarioIndex],
+        ...body,
+    }
 
     data.usuarios.splice(usuarioIndex, 1);
     writeData(data);
-    res.json({ message: "User deleted successfully" });
+    res.json({ message: "Usuario eliminado con éxito." });
 });
 
-// Request es una petición que se hace al servidor
-app.listen(3000, () => {
-    console.log("Server listing on port 3000");
-});
-
+export default router;

@@ -20,14 +20,14 @@
                 <% data.notificaciones.forEach(notificacion=> { %>
                     <li class="notificacion-item">
                         <strong>
-                            <%= notificacion.name %>
+                            Tipo: <%= notificacion.tipo %>
                         </strong>
-                        <span>Tipo: <%= notificacion.tipo %></span>
                         <span>Fecha: <%= notificacion.fecha %></span>
                         <span>Hora: <%= notificacion.hora %></span>
                         <span>Estado: <%= notificacion.estado %></span>
 
                     </li>
+                    
                     <% }) %>
             </ul>
         </section>
