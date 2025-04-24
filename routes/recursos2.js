@@ -24,17 +24,21 @@ router.get('/', (req, res) => {
     console.log("ENTRA")
     const user={name:"Manuel"}
     const htmlMessage = `
-    <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
-    <a href="http://localhost:3000/">Home</a>`;
+    <p>A continuación, puedes ver la <strong>lista de recursos.</strong> Para volver atrás, pulse Home:</p>
+    <a href="/">Home</a>`;
     const data = readData();
     res.render("recursos",{user, data,htmlMessage})
 });
 
 router.get("/:id", (req, res) => {
     const data = readData();
+    const user={name:"Manuel"}
+    const htmlMessage = `
+    <a href="/recursos">Lista de Recursos</a>`;
     const id = parseInt(req.params.id);
     const recurso = data.recursos.find((recurso) => recurso.id_recurso === id);
-    res.json(recurso);
+    res.render("recursosDetalles",{user, recurso, htmlMessage})
+
 });
 
 router.post("/", (req, res) => {

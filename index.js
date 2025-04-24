@@ -23,12 +23,10 @@ app.get("/",(req,res)=>{
     res.render("home");
 });
 
-//app.use("/reservas", reservasRoutes);
 app.use("/notificaciones", notificacionesRoutes);
 app.use("/reservas", reservasRoutes);
 app.use("/usuarios", usuariosRoutes);
 app.use("/recursos", recursosRoutes);
-
 
 //Funció per escoltar
 app.listen(3000,()=>{

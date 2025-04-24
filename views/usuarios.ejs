@@ -21,6 +21,8 @@
                         <strong><%= usuario.nombre %></strong>
                         <span>Correo Electrónico: <%= usuario.correo %></span>
                         <span>Rol: <%= usuario.rol %></span>
+                        <a href="/usuarios/<%=usuario.id_usuario%>">Ver detalles...</a>
+
                     </li>
                 <% }) %>
             </ul>

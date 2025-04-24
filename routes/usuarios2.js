@@ -24,17 +24,19 @@ router.get('/', (req, res) => {
     console.log("ENTRA")
     const user={name:"Manuel"}
     const htmlMessage = `
-    <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
-    <a href="http://localhost:3000/">Home</a>`;
+    <a href="/">Home</a>`;
     const data = readData();
     res.render("usuarios",{user, data,htmlMessage})
 });
 
 router.get("/:id", (req, res) => {
     const data = readData();
+    const user={name:"Manuel"}
+    const htmlMessage = `
+    <a href="/usuarios">Lista de Usuarios</a>`;
     const id = parseInt(req.params.id);
     const usuario = data.usuarios.find((usuario) => usuario.id_usuario === id);
-    res.json(usuario);
+    res.render("usuariosDetalles",{user, usuario, htmlMessage})
 });
 
 router.post("/", (req, res) => {

@@ -21,6 +21,8 @@
                         <span>Fecha: <%= reserva.fecha %></span>
                         <span>Hora de Inicio: <%= reserva.horaInicio %></span>
                         <span>Hora de Fin: <%= reserva.horaFin %></span>
+                        <a href="/reservas/<%=reserva.id_reserva%>">Ver detalles...</a>
+
                     </li>
                 <% }) %>
             </ul>

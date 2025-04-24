@@ -24,17 +24,21 @@ router.get('/', (req, res) => {
     console.log("ENTRA")
     const user={name:"Manuel"}
     const htmlMessage = `
-    <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
-    <a href="http://localhost:3000/">Home</a>`;
+    <p>A continuación, puedes ver la <strong>lista de notificaciones.</strong> Para volver atrás, pulse Home:</p>
+    <a href="/">Home</a>`;
     const data = readData();
     res.render("notificaciones",{user, data,htmlMessage})
 });
 
 router.get("/:id", (req, res) => {
     const data = readData();
+    const user={name:"Manuel"}
+    const htmlMessage = `
+    <a href="/notificaciones">Lista de Notificaciones</a>`;
     const id = parseInt(req.params.id);
     const notificacion = data.notificaciones.find((notificacion) => notificacion.id_notificacion === id);
-    res.json(notificacion);
+    res.render("notificacionesDetalles",{user, notificacion, htmlMessage})
+
 });
 
 router.post("/", (req, res) => {
