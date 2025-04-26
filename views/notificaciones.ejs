@@ -20,9 +20,9 @@
                 <% data.notificaciones.forEach(notificacion=> { %>
                     <li class="item">
                         <strong>
-                            Tipo: <%= notificacion.tipo %>
+                            <%= notificacion.fecha %>
                         </strong>
-                        <span>Fecha: <%= notificacion.fecha %></span>
+                        <span>Tipo: <%= notificacion.tipo %></span>
                         <a href="/notificaciones/<%=notificacion.id_notificacion%>">Ver detalles...</a><br>
                         <a href="/notificaciones/editarNotificaciones/<%=notificacion.id_notificacion%>">Editar Notificación</a>
                     </li>
