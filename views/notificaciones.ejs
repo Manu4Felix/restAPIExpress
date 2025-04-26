@@ -16,16 +16,15 @@
     <main>
         <section>
             <h2>Lista de Notificaciones</h2>
-            <ul class="notificacion-list">
+            <ul class="list">
                 <% data.notificaciones.forEach(notificacion=> { %>
-                    <li class="notificacion-item">
+                    <li class="item">
                         <strong>
                             Tipo: <%= notificacion.tipo %>
                         </strong>
                         <span>Fecha: <%= notificacion.fecha %></span>
-                        <span>Hora: <%= notificacion.hora %></span>
-                        <span>Estado: <%= notificacion.estado %></span>
-                        <a href="/notificaciones/<%=notificacion.id_notificacion%>">Ver detalles...</a>
+                        <a href="/notificaciones/<%=notificacion.id_notificacion%>">Ver detalles...</a><br>
+                        <a href="/notificaciones/editarNotificaciones/<%=notificacion.id_notificacion%>">Editar Notificación</a>
                     </li>
 
                     <% }) %>

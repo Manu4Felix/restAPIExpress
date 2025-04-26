@@ -24,6 +24,7 @@ router.get('/', (req, res) => {
     console.log("ENTRA")
     const user={name:"Manuel"}
     const htmlMessage = `
+    <p>A continuación, puedes ver la <strong>lista de reservas.</strong> Para volver atrás, pulse Home:</p>
     <a href="/">Home</a>`;
     const data = readData();
     res.render("reservas",{user, data,htmlMessage})
@@ -37,6 +38,14 @@ router.get("/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const reserva = data.reservas.find((reserva) => reserva.id_reserva === id);
     res.render("reservasDetalles",{user, reserva, htmlMessage})
+});
+
+router.get("/editarReservas/:id", (req, res) => {
+    const data = readData();
+    const user={name:"Manuel"}
+    const id = parseInt(req.params.id);
+    const reserva = data.reservas.find((reserva) => reserva.id_reserva === id);
+    res.render("editarReservas",{reserva, user})
 });
 
 router.post("/", (req, res) => {

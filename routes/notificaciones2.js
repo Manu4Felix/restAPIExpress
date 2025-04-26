@@ -41,6 +41,15 @@ router.get("/:id", (req, res) => {
 
 });
 
+router.get("/editarNotificaciones/:id", (req, res) => {
+    const data = readData();
+    const user={name:"Manuel"}
+    const id = parseInt(req.params.id);
+    const notificacion = data.notificaciones.find((notificacion) => notificacion.id_notificacion === id);
+    res.render("editarNotificaciones",{notificacion, user})
+
+});
+
 router.post("/", (req, res) => {
     const data = readData();
     const body = req.body;

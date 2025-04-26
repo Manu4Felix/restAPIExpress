@@ -15,14 +15,13 @@
     <main>
         <section>
             <h2>Lista de Usuarios</h2>
-            <ul class="notificacion-list">
+            <ul class="list">
                 <% data.usuarios.forEach(usuario => { %>
-                    <li class="notificacion-item">
+                    <li class="item">
                         <strong><%= usuario.nombre %></strong>
-                        <span>Correo Electrónico: <%= usuario.correo %></span>
-                        <span>Rol: <%= usuario.rol %></span>
-                        <a href="/usuarios/<%=usuario.id_usuario%>">Ver detalles...</a>
-
+                        <span><%= usuario.correo %></span>
+                        <a href="/usuarios/<%=usuario.id_usuario%>">Ver detalles...</a><br>
+                        <a href="/usuarios/editarUsuarios/<%=usuario.id_usuario%>">Editar Usuario</a>
                     </li>
                 <% }) %>
             </ul>

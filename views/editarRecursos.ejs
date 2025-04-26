@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editar Recurso</title>
+  <link rel="stylesheet" href="/styleForm.css" />
+</head>
+<body>
+  <header>
+    <h1>Editar Recurso</h1>
+  </header>
+
+  <main>
+    <h2>Modifica los datos del recurso:</h2>
+    <form action="/recursos/<%= recurso.id_recurso %>?_method=PUT" method="POST">
+
+      <label for="nombreRe">Nombre:</label>
+      <input type="text" id="nombreRe" name="nombreRe" value="<%= recurso.nombreRe %>" required>
+
+      <label for="ubicacion">Ubicación:</label>
+      <input type="text" id="ubicacion" name="ubicacion" value="<%= recurso.ubicacion %>" required>
+
+      <label for="tipo">Tipo:</label>
+      <input type="text" id="tipo" name="tipo" value="<%= recurso.tipo %>" required>
+
+      <label for="estado">Estado:</label>
+      <input type="text" id="estado" name="estado" value="<%= recurso.estado %>" required>
+
+      <button type="submit">Guardar cambios</button>
+    </form>
+
+    <p>
+      <a href="/recursos" class="back-button">
+        ← Volver a Lista de Recursos
+      </a>
+    </p>
+  </main>
+</body>
+</html>

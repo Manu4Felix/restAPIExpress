@@ -11,8 +11,7 @@ Content-Type: application/json
 
     {
         "id_recurso": 2,
-        "nombreRe": "Recurso 2",
-        "descripcion": "Material de oficina",
+        "nombreRe": "Material de oficina",
         "ubicacion": "Calle 2",
         "tipoRecurso": "equipamiento",
         "estadoRecurso": "disponible"
@@ -24,8 +23,7 @@ Content-Type: application/json
 
     {
         "id_recurso": 2,
-        "nombreRe": "Recurso 2 modificado",
-        "descripcion": "Material de oficina",
+        "nombreRe": "Material de oficina",
         "ubicacion": "Calle 2",
         "tipoRecurso": "equipamiento",
         "estadoRecurso": "disponible"

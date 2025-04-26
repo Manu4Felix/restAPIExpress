@@ -14,14 +14,14 @@
     <main>
         <section>
             <h2>Lista de Reservas</h2>
-            <ul class="notificacion-list">
+            <ul class="list">
                 <% data.reservas.forEach(reserva => { %>
-                    <li class="notificacion-item">
-                        <strong><%= reserva.estado %></strong>
-                        <span>Fecha: <%= reserva.fecha %></span>
+                    <li class="item">
+                        <strong><%= reserva.fecha %></strong>
                         <span>Hora de Inicio: <%= reserva.horaInicio %></span>
                         <span>Hora de Fin: <%= reserva.horaFin %></span>
-                        <a href="/reservas/<%=reserva.id_reserva%>">Ver detalles...</a>
+                        <a href="/reservas/<%=reserva.id_reserva%>">Ver detalles...</a><br>
+                        <a href="/reservas/editarReservas/<%=reserva.id_reserva%>">Editar Reserva</a>
 
                     </li>
                 <% }) %>

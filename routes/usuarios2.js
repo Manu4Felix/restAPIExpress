@@ -24,6 +24,7 @@ router.get('/', (req, res) => {
     console.log("ENTRA")
     const user={name:"Manuel"}
     const htmlMessage = `
+    <p>A continuación, puedes ver la <strong>lista de usuarios.</strong> Para volver atrás, pulse Home:</p>
     <a href="/">Home</a>`;
     const data = readData();
     res.render("usuarios",{user, data,htmlMessage})
@@ -37,6 +38,14 @@ router.get("/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const usuario = data.usuarios.find((usuario) => usuario.id_usuario === id);
     res.render("usuariosDetalles",{user, usuario, htmlMessage})
+});
+
+router.get("/editarUsuarios/:id", (req, res) => {
+    const data = readData();
+    const user={name:"Manuel"}
+    const id = parseInt(req.params.id);
+    const usuario = data.usuarios.find((usuario) => usuario.id_usuario === id);
+    res.render("editarUsuarios",{usuario, user})
 });
 
 router.post("/", (req, res) => {

@@ -14,15 +14,13 @@
     <main>
         <section>
             <h2>Lista de Recursos</h2>
-            <ul class="notificacion-list">
+            <ul class="list">
                 <% data.recursos.forEach(recurso => { %>
-                    <li class="notificacion-item">
+                    <li class="item">
                         <strong><%= recurso.nombreRe %></strong>
-                        <span>Descripción: <%= recurso.descripcion %></span>
-                        <span>Ubicación: <%= recurso.ubicacion %></span>
-                        <span>Tipo: <%= recurso.tipoRecurso %></span>
                         <span>Estado: <%= recurso.estadoRecurso %></span>
-                        <a href="/recursos/<%=recurso.id_recurso%>">Ver detalles...</a>
+                        <a href="/recursos/<%=recurso.id_recurso%>">Ver detalles...</a><br>
+                        <a href="/recursos/editarRecursos/<%=recurso.id_recurso%>">Editar Recurso</a>
                     </li>
                 <% }) %>
             </ul>

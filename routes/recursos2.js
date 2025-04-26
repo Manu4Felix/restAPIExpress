@@ -41,6 +41,14 @@ router.get("/:id", (req, res) => {
 
 });
 
+router.get("/editarRecursos/:id", (req, res) => {
+    const data = readData();
+    const user={name:"Manuel"}
+    const id = parseInt(req.params.id);
+    const recurso = data.recursos.find((recurso) => recurso.id_recurso === id);
+    res.render("editarRecursos",{recurso, user})
+});
+
 router.post("/", (req, res) => {
     const data=readData();
     const body=req.body;
