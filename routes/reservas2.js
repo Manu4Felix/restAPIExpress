@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     const user={name:"Manuel"}
     const htmlMessage = `
     <p>A continuación, puedes ver la <strong>lista de reservas.</strong> Para volver atrás, pulse Home:</p>
-    <a href="/">Home</a>`;
+    <a href="/home">Home</a>`;
     const data = readData();
     res.render("reservas",{user, data,htmlMessage})
 });

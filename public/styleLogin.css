@@ -1,0 +1,102 @@
+/* styleLogin.css */
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 400px;
+    width: 90%;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Títulos */
+h2 {
+    font-size: 1.6em;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Formularios */
+.form-container {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #ff7e5f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #e8634f;
+}
+
+/* Botón de cerrar sesión */
+#close-session {
+    background-color: #dc3545;
+}
+
+#close-session:hover {
+    background-color: #b02a37;
+}
+
+/* Mensajes */
+span {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.3em;
+    }
+}
